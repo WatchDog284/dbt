@@ -34,4 +34,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   jaffle_shop:
+    # Default for the whole project
     +materialized: view
+    
+    staging:
+      # Explicitly views (matches default)
+      +materialized: view
+      
+    marts:
+      # Overrides default; these will be physical tables
+      +materialized: table
+
